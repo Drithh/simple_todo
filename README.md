@@ -1,4 +1,4 @@
-# Todo Fschmatz
+# Simple Todo
 
 Flutter project.
 

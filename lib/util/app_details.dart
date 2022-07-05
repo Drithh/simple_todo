@@ -1,7 +1,7 @@
 class AppDetails {
-  static String appVersion = "2.5.8";
-  static String appName = "Todo Fschmatz";
-  static String repositoryLink = "https://github.com/Fschmatz/simple_todo";
+  static String appVersion = "1.0";
+  static String appName = "Simple Todo";
+  static String repositoryLink = "https://github.com/drithh/simple_todo";
 
   static String changelogCurrent = '''
 2.5.8

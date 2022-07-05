@@ -103,7 +103,7 @@ class _HomeState extends State<Home> {
             const ListTile(
               contentPadding: EdgeInsets.fromLTRB(28, 0, 28, 0),
               title: Text(
-                'Todo Fschmatz',
+                'Simple Todo',
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
               ),
             ),

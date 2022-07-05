@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.fschmatz.simple_todo">
+    package="com.drithh.simple_todo">
    <application
-        android:label="Todo Fschmatz"
+        android:label="Simple Todo"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
