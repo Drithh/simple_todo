@@ -6,6 +6,7 @@ import 'package:simple_todo/db/tasks/task_dao.dart';
 import 'package:simple_todo/widgets/task_card.dart';
 import 'new_task.dart';
 
+// ignore: must_be_immutable
 class TaskList extends StatefulWidget {
   int state;
   int currentIdTodo;
@@ -14,6 +15,7 @@ class TaskList extends StatefulWidget {
       : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _TaskListState createState() => _TaskListState();
 }
 
@@ -184,8 +186,8 @@ class _TaskListState extends State<TaskList>
                           leading: const Icon(Icons.filter_list_outlined),
                           title: Text(_filtersList[selectedFilter].name),
                           trailing: Text(tasksList.length != 1
-                              ? tasksList.length.toString() + " Tasks"
-                              : tasksList.length.toString() + " Task"),
+                              ? "${tasksList.length} Tasks"
+                              : "${tasksList.length} Task"),
                         ),
                         ListView.separated(
                           separatorBuilder: (BuildContext context, int index) =>

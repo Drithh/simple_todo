@@ -3,10 +3,12 @@ import 'package:flutter/services.dart';
 import 'package:simple_todo/classes/todo.dart';
 import '../../db/todos/todo_controller.dart';
 
+// ignore: must_be_immutable
 class EditTodo extends StatefulWidget {
   Todo todo;
 
   @override
+  // ignore: library_private_types_in_public_api
   _EditTodoState createState() => _EditTodoState();
 
   EditTodo({Key? key, required this.todo}) : super(key: key);

@@ -6,6 +6,7 @@ import '../../util/block_picker_alt.dart';
 
 class NewTag extends StatefulWidget {
   @override
+  // ignore: library_private_types_in_public_api
   _NewTagState createState() => _NewTagState();
 
   const NewTag({Key? key}) : super(key: key);
@@ -105,20 +106,19 @@ class _NewTagState extends State<NewTag> {
               controller: customControllerName,
               textCapitalization: TextCapitalization.sentences,
               decoration: InputDecoration(
-                labelText: "Name",
-                counterText: "",
-                helperText: "* Required",
-                errorText: _validName ?  null : "Name is empty"
-              ),
+                  labelText: "Name",
+                  counterText: "",
+                  helperText: "* Required",
+                  errorText: _validName ? null : "Name is empty"),
             ),
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 10, 16, 5),
-            child: Text('Color',
+            child: Text(
+              'Color',
               style: TextStyle(
                   fontSize: 14,
-                  color: Theme.of(context).textTheme.headline1!.color
-              ),
+                  color: Theme.of(context).textTheme.headline1!.color),
             ),
           ),
           ListTile(

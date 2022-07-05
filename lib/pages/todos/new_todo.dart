@@ -5,6 +5,7 @@ import '../../db/todos/todo_controller.dart';
 
 class NewTodo extends StatefulWidget {
   @override
+  // ignore: library_private_types_in_public_api
   _NewTodoState createState() => _NewTodoState();
 
   const NewTodo({Key? key}) : super(key: key);
@@ -65,7 +66,7 @@ class _NewTodoState extends State<NewTodo> {
                 labelText: "Name",
                 counterText: "",
                 helperText: "* Required",
-                errorText: _validName ?  null : "Name is empty",
+                errorText: _validName ? null : "Name is empty",
               ),
             ),
           )

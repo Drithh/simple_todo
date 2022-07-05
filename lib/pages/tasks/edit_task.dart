@@ -7,6 +7,7 @@ import '../../db/tasks/task_controller.dart';
 import '../../db/tasks_tags/tasks_tags_controller.dart';
 import '../../util/utils_functions.dart';
 
+// ignore: must_be_immutable
 class EditTask extends StatefulWidget {
   Task task;
   Function() getAllTasksByState;
@@ -20,6 +21,7 @@ class EditTask extends StatefulWidget {
       : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _EditTaskState createState() => _EditTaskState();
 }
 

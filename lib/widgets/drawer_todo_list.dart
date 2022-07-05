@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:simple_todo/classes/todo.dart';
+// import 'package:simple_todo/classes/todo.dart';
 import 'package:simple_todo/db/tasks/task_dao.dart';
 import 'package:simple_todo/db/todos/todo_dao.dart';
-import 'package:simple_todo/pages/todos/edit_todo.dart';
+// import 'package:simple_todo/pages/todos/edit_todo.dart';
 
+// ignore: must_be_immutable
 class DrawerTodoList extends StatefulWidget {
   Function(int) changeCurrentTodo;
   int currentIdTodo;
@@ -13,6 +14,7 @@ class DrawerTodoList extends StatefulWidget {
       : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _DrawerTodoListState createState() => _DrawerTodoListState();
 }
 
@@ -71,6 +73,7 @@ class _DrawerTodoListState extends State<DrawerTodoList> {
             ),
             onTap: () async {
               await widget.changeCurrentTodo(_todoList[index]['id_todo']);
+              // ignore: use_build_context_synchronously
               Navigator.of(context).pop();
             },
           ),

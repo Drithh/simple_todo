@@ -1,10 +1,10 @@
 import 'dart:io';
+// ignore: depend_on_referenced_packages
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart';
 
 class TasksTagsDao {
-
   static const _databaseName = 'Todo.db';
   static const _databaseVersion = 1;
 
@@ -13,8 +13,7 @@ class TasksTagsDao {
   static const columnIdTag = 'id_tag';
 
   static Database? _database;
-  Future<Database> get database async =>
-      _database ??= await _initDatabase();
+  Future<Database> get database async => _database ??= await _initDatabase();
 
   TasksTagsDao._privateConstructor();
   static final TasksTagsDao instance = TasksTagsDao._privateConstructor();
@@ -22,8 +21,7 @@ class TasksTagsDao {
   Future<Database> _initDatabase() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
     String path = join(documentsDirectory.path, _databaseName);
-    return await openDatabase(path,
-        version: _databaseVersion);
+    return await openDatabase(path, version: _databaseVersion);
   }
 
   Future<int> insert(Map<String, dynamic> row) async {
@@ -38,7 +36,8 @@ class TasksTagsDao {
 
   Future<List<Map<String, dynamic>>> queryTagsFromTaskId(int task) async {
     Database db = await instance.database;
-    return await db.rawQuery('SELECT * FROM $table WHERE $columnIdTask = $task');
+    return await db
+        .rawQuery('SELECT * FROM $table WHERE $columnIdTask = $task');
   }
 
   Future<int> deleteWithTaskId(int idTask) async {
@@ -50,5 +49,4 @@ class TasksTagsDao {
     Database db = await instance.database;
     return await db.delete('$table WHERE $columnIdTag = $idTag');
   }
-
 }

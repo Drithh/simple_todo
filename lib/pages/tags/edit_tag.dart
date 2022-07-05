@@ -5,8 +5,10 @@ import '../../db/tags/tag_controller.dart';
 import '../../util/block_picker_alt.dart';
 import '../../util/utils_functions.dart';
 
+// ignore: must_be_immutable
 class EditTag extends StatefulWidget {
   @override
+  // ignore: library_private_types_in_public_api
   _EditTagState createState() => _EditTagState();
 
   Tag tag;

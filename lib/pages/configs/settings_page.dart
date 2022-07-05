@@ -8,6 +8,7 @@ import 'changelog_page.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
+  // ignore: library_private_types_in_public_api
   _SettingsPageState createState() => _SettingsPageState();
 
   const SettingsPage({Key? key}) : super(key: key);
@@ -43,7 +44,7 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               child: ListTile(
                 title: Text(
-                  AppDetails.appName + " " + AppDetails.appVersion,
+                  "${AppDetails.appName} ${AppDetails.appVersion}",
                   textAlign: TextAlign.center,
                   style: const TextStyle(fontSize: 17.5, color: Colors.black87),
                 ),

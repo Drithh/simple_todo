@@ -4,6 +4,7 @@ library block_colorpicker;
 
 import 'package:flutter/material.dart';
 
+// ignore: implementation_imports
 import 'package:flutter_colorpicker/src/utils.dart';
 
 const List<Color> _defaultColors = [
@@ -32,6 +33,7 @@ typedef PickerItemBuilder = Widget Function(
     Color color, bool isCurrentColor, void Function() changeColor);
 
 class BlockPicker extends StatefulWidget {
+  // ignore: use_key_in_widget_constructors
   const BlockPicker({
     required this.pickerColor,
     required this.onColorChanged,
@@ -111,13 +113,14 @@ class _BlockPickerState extends State<BlockPicker> {
     return widget.layoutBuilder(
       context,
       widget.availableColors,
-          (Color color, [bool? _, Function? __]) => widget.itemBuilder(
+      (Color color, [bool? _, Function? __]) => widget.itemBuilder(
           color, _currentColor.value == color.value, () => changeColor(color)),
     );
   }
 }
 
 class MultipleChoiceBlockPicker extends StatefulWidget {
+  // ignore: use_key_in_widget_constructors
   const MultipleChoiceBlockPicker({
     required this.pickerColors,
     required this.onColorsChanged,
@@ -159,10 +162,10 @@ class _MultipleChoiceBlockPickerState extends State<MultipleChoiceBlockPicker> {
     return widget.layoutBuilder(
       context,
       widget.availableColors,
-          (Color color, [bool? _, Function? __]) => widget.itemBuilder(
+      (Color color, [bool? _, Function? __]) => widget.itemBuilder(
         color,
         _currentColors.contains(color),
-            () => toggleColor(color),
+        () => toggleColor(color),
       ),
     );
   }

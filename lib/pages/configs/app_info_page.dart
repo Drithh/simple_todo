@@ -32,7 +32,7 @@ class AppInfoPage extends StatelessWidget {
           ),
           const SizedBox(height: 15),
           Center(
-            child: Text(AppDetails.appName + " " + AppDetails.appVersion,
+            child: Text("${AppDetails.appName} ${AppDetails.appVersion}",
                 style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w700,

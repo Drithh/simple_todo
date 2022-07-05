@@ -8,9 +8,10 @@ import '../../db/tags/tag_controller.dart';
 import '../../util/utils_functions.dart';
 
 class TagsManager extends StatefulWidget {
-  TagsManager({Key? key}) : super(key: key);
+  const TagsManager({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _TagsManagerState createState() => _TagsManagerState();
 }
 

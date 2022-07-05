@@ -6,8 +6,10 @@ import 'package:simple_todo/pages/tasks/edit_task.dart';
 import '../db/tasks/task_controller.dart';
 import '../util/utils_functions.dart';
 
+// ignore: must_be_immutable
 class TaskCard extends StatefulWidget {
   @override
+  // ignore: library_private_types_in_public_api
   _TaskCardState createState() => _TaskCardState();
 
   Task task;

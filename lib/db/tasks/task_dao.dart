@@ -1,10 +1,10 @@
 import 'dart:io';
+// ignore: depend_on_referenced_packages
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart';
 
 class TaskDao {
-
   static const _databaseName = 'Todo.db';
   static const _databaseVersion = 1;
 
@@ -16,8 +16,7 @@ class TaskDao {
   static const columnIdTodo = 'id_todo';
 
   static Database? _database;
-  Future<Database> get database async =>
-      _database ??= await _initDatabase();
+  Future<Database> get database async => _database ??= await _initDatabase();
 
   TaskDao._privateConstructor();
   static final TaskDao instance = TaskDao._privateConstructor();
@@ -25,8 +24,7 @@ class TaskDao {
   Future<Database> _initDatabase() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
     String path = join(documentsDirectory.path, _databaseName);
-    return await openDatabase(path,
-        version: _databaseVersion);
+    return await openDatabase(path, version: _databaseVersion);
   }
 
   Future<int> insert(Map<String, dynamic> row) async {
@@ -46,27 +44,34 @@ class TaskDao {
 
   Future<List<Map<String, dynamic>>> queryAllByState(int state) async {
     Database db = await instance.database;
-    return await db.rawQuery('SELECT * FROM $table WHERE $columnState = $state');
+    return await db
+        .rawQuery('SELECT * FROM $table WHERE $columnState = $state');
   }
 
   Future<List<Map<String, dynamic>>> queryAllByStateDesc(int state) async {
     Database db = await instance.database;
-    return await db.rawQuery('SELECT * FROM $table WHERE $columnState = $state ORDER BY id_task DESC');
+    return await db.rawQuery(
+        'SELECT * FROM $table WHERE $columnState = $state ORDER BY id_task DESC');
   }
 
-  Future<List<Map<String, dynamic>>> queryAllByTodoAndStateDesc(int state, int todoId) async {
+  Future<List<Map<String, dynamic>>> queryAllByTodoAndStateDesc(
+      int state, int todoId) async {
     Database db = await instance.database;
-    return await db.rawQuery('SELECT * FROM $table WHERE $columnState = $state AND $columnIdTodo = $todoId ORDER BY id_task DESC');
+    return await db.rawQuery(
+        'SELECT * FROM $table WHERE $columnState = $state AND $columnIdTodo = $todoId ORDER BY id_task DESC');
   }
 
   Future<List<Map<String, dynamic>>> queryAllByTodo(int todoId) async {
     Database db = await instance.database;
-    return await db.rawQuery('SELECT * FROM $table WHERE $columnIdTodo = $todoId ORDER BY id_task DESC');
+    return await db.rawQuery(
+        'SELECT * FROM $table WHERE $columnIdTodo = $todoId ORDER BY id_task DESC');
   }
 
-  Future<List<Map<String, dynamic>>> queryAllByTodoStateFilter(int state, int todoId, String order) async {
+  Future<List<Map<String, dynamic>>> queryAllByTodoStateFilter(
+      int state, int todoId, String order) async {
     Database db = await instance.database;
-    return await db.rawQuery('SELECT * FROM $table WHERE $columnState = $state AND $columnIdTodo = $todoId ORDER BY $order');
+    return await db.rawQuery(
+        'SELECT * FROM $table WHERE $columnState = $state AND $columnIdTodo = $todoId ORDER BY $order');
   }
 
   Future<int> update(Map<String, dynamic> row) async {
@@ -82,6 +87,7 @@ class TaskDao {
 
   Future<int> deleteAllTasksFromTodo(int idTodo) async {
     Database db = await instance.database;
-    return await db.delete(table, where: '$columnIdTodo = ?', whereArgs: [idTodo]);
+    return await db
+        .delete(table, where: '$columnIdTodo = ?', whereArgs: [idTodo]);
   }
 }

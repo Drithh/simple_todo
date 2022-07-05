@@ -1,7 +1,10 @@
+// ignore_for_file: prefer_interpolation_to_compose_strings
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:simple_todo/db/tasks/task_dao.dart';
 
+// ignore: must_be_immutable
 class DialogPrintTodo extends StatefulWidget {
   int todoId;
   String todoName;
@@ -10,6 +13,7 @@ class DialogPrintTodo extends StatefulWidget {
       : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _DialogPrintTodoState createState() => _DialogPrintTodoState();
 }
 
@@ -32,12 +36,12 @@ class _DialogPrintTodoState extends State<DialogPrintTodo> {
     List<Map<String, dynamic>> listTasksDone =
         await dbTask.queryAllByTodoAndStateDesc(2, widget.todoId);
 
-    formattedList += widget.todoName + '\n';
+    formattedList += '${widget.todoName}\n';
 
-    formattedList += '\nTODO - ' + listTasksTodo.length.toString() + ' tasks\n';
+    formattedList += '\nTODO - ${listTasksTodo.length} tasks\n';
     for (int i = 0; i < listTasksTodo.length; i++) {
       if (listTasksTodo[i]['note'].toString().isNotEmpty) {
-        formattedList += "\n• " + listTasksTodo[i]['title'] + "\n";
+        formattedList += "${"\n• " + listTasksTodo[i]['title']}\n";
         formattedList += listTasksTodo[i]['note'];
       } else {
         formattedList += "\n• " + listTasksTodo[i]['title'];
@@ -45,11 +49,10 @@ class _DialogPrintTodoState extends State<DialogPrintTodo> {
       formattedList += '\n\n--------------------------------\n';
     }
 
-    formattedList +=
-        '\n\nDOING - ' + listTasksDoing.length.toString() + ' tasks\n';
+    formattedList += '\n\nDOING - ${listTasksDoing.length} tasks\n';
     for (int i = 0; i < listTasksDoing.length; i++) {
       if (listTasksDoing[i]['note'].toString().isNotEmpty) {
-        formattedList += "\n• " + listTasksDoing[i]['title'] + "\n";
+        formattedList += "${"\n• " + listTasksDoing[i]['title']}\n";
         formattedList += listTasksDoing[i]['note'];
       } else {
         formattedList += "\n• " + listTasksDoing[i]['title'];
@@ -57,11 +60,10 @@ class _DialogPrintTodoState extends State<DialogPrintTodo> {
       formattedList += '\n\n--------------------------------\n';
     }
 
-    formattedList +=
-        '\n\nDONE - ' + listTasksDone.length.toString() + ' tasks\n';
+    formattedList += '\n\nDONE - ${listTasksDone.length} tasks\n';
     for (int i = 0; i < listTasksDone.length; i++) {
       if (listTasksDone[i]['note'].toString().isNotEmpty) {
-        formattedList += "\n• " + listTasksDone[i]['title'] + "\n";
+        formattedList += "${"\n• " + listTasksDone[i]['title']}\n";
         formattedList += listTasksDone[i]['note'];
       } else {
         formattedList += "\n• " + listTasksDone[i]['title'];

@@ -1,10 +1,11 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'dart:io';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart';
 
 class TagDao {
-
   static const _databaseName = 'Todo.db';
   static const _databaseVersion = 1;
 
@@ -14,8 +15,7 @@ class TagDao {
   static const columnColor = 'color';
 
   static Database? _database;
-  Future<Database> get database async =>
-      _database ??= await initDatabase();
+  Future<Database> get database async => _database ??= await initDatabase();
 
   TagDao._privateConstructor();
   static final TagDao instance = TagDao._privateConstructor();
@@ -23,8 +23,7 @@ class TagDao {
   Future<Database> initDatabase() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
     String path = join(documentsDirectory.path, _databaseName);
-    return await openDatabase(path,
-        version: _databaseVersion);
+    return await openDatabase(path, version: _databaseVersion);
   }
 
   Future<int> insert(Map<String, dynamic> row) async {
@@ -39,7 +38,8 @@ class TagDao {
 
   Future<List<Map<String, dynamic>>> queryAllRowsByName() async {
     Database db = await instance.database;
-    return await db.rawQuery('SELECT * FROM $table ORDER BY $columnName COLLATE NOCASE');
+    return await db
+        .rawQuery('SELECT * FROM $table ORDER BY $columnName COLLATE NOCASE');
   }
 
   Future<List<Map<String, dynamic>>> queryAllRowsDesc() async {
@@ -76,6 +76,4 @@ class TagDao {
           ORDER BY tg.name 
         ''');
   }
-
-
 }
