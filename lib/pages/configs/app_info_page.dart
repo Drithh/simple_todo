@@ -68,19 +68,6 @@ class AppInfoPage extends StatelessWidget {
                 style: TextStyle(
                     decoration: TextDecoration.underline, color: Colors.blue)),
           ),
-          ListTile(
-            title: Text("Quote",
-                style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    color: themeColorApp)),
-          ),
-          const ListTile(
-            leading: Icon(Icons.messenger_outline),
-            title: Text(
-              'For every minute spent organizing, an hour is earned.',
-            ),
-          ),
         ]));
   }
 }

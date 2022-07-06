@@ -4,7 +4,7 @@ import 'package:simple_todo/util/app_details.dart';
 import 'package:simple_todo/util/dialog_select_theme.dart';
 import '../../util/utils_functions.dart';
 import 'app_info_page.dart';
-import 'changelog_page.dart';
+// import 'changelog_page.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -90,21 +90,6 @@ class _SettingsPageState extends State<SettingsPage> {
                     context,
                     MaterialPageRoute(
                       builder: (BuildContext context) => const AppInfoPage(),
-                    ));
-              },
-            ),
-            ListTile(
-              leading: const Icon(
-                Icons.article_outlined,
-              ),
-              title: const Text(
-                "Changelog",
-              ),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => const ChangelogPage(),
                     ));
               },
             ),

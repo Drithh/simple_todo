@@ -6,7 +6,7 @@ import 'package:simple_todo/db/todos/todo_dao.dart';
 import 'package:simple_todo/pages/todos/edit_todo.dart';
 import 'package:simple_todo/pages/todos/new_todo.dart';
 import '../../db/todos/todo_controller.dart';
-import '../../widgets/dialog_print_todo.dart';
+// import '../../widgets/dialog_print_todo.dart';
 
 class TodosManager extends StatefulWidget {
   int currentIdTodo;
@@ -121,23 +121,6 @@ class _TodosManagerState extends State<TodosManager> {
                               context, _todoList[index]['id_todo']);
                         })
                     : const SizedBox.shrink(),
-                const SizedBox(
-                  width: 8,
-                ),
-                IconButton(
-                    icon: const Icon(
-                      Icons.print_outlined,
-                      size: 20,
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (BuildContext context) => DialogPrintTodo(
-                                todoName: _todoList[index]['name'],
-                                todoId: _todoList[index]['id_todo']),
-                          ));
-                    }),
                 const SizedBox(
                   width: 8,
                 ),

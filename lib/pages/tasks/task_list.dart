@@ -174,7 +174,7 @@ class _TaskListState extends State<TaskList>
             : tasksList.isEmpty
                 ? const Center(
                     child: Text(
-                    "It's empty like your soul 💀💀",
+                    "It's empty\ntry add one task!",
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ))
